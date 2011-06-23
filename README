@@ -1,0 +1,29 @@
+jQuery.urlFor
+
+This small jQ plugin tries to simulate - in MVC's world - well-know url_for function.
+
+Idea is mostly based on perl MVC framework ( Catalyst MVC uri_for and Mojolicious url_for ), as far as i know there is something like that in Ruby and Symfony.
+
+You can use this plugin with the following parameters:
+
+$.urlFor( "url" ) which generates "url"
+$.urlFor( "/list","of","the","parameters" ) which generates "/list/of/the/parameters"
+$.urlFor( "/action/:param1/:param2", { param1: "foo", param2: "bar" }) or 
+$.urlFor( "/action/:param1/:param2", [ "foo", "bar" ]) which generate "/action/foo/bar"
+
+An example, how to use this plugin:
+
+window.MYNAMESPACE: {
+	URLS:{
+		editContact: "/contant/:id"
+	}
+};
+
+$.ajax({
+	url: $.urlFor( MYNAMESPACE.URLS.editContact, { id: $( "#elem" ).data( "id" ) } ), 
+	....
+});
+
+Ideas, issues, patches are welcome.
+
+Fork and have fun. :)
