@@ -24,6 +24,11 @@ $.ajax({
 	....
 });
 
+Using with Sammy.js
+Sammy.Application.prototype.setLocation = function( url, params ){
+	return this._location_proxy.setLocation( jQuery.urlFor( url, params ) );
+}
+
 Ideas, issues, patches are welcome.
 
 Fork and have fun. :)
